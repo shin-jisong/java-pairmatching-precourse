@@ -21,6 +21,10 @@ public class Crew {
         return Randoms.shuffle(backendCrew);
     }
 
+    public List<String> shuffleFrontend() {
+        return Randoms.shuffle(frontendCrew);
+    }
+
     private List<String> readCrew(String crewCourse) {
         List<String> lines = new ArrayList<>();
         InputStream inputStream = Application.class.getClassLoader().getResourceAsStream(crewCourse);
