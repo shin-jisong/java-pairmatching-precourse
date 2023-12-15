@@ -12,4 +12,8 @@ public class Course {
         this.currentCourse = currentCourse;
     }
 
+    public boolean compareCourse(String targetCourse) {
+        return currentCourse.equals(targetCourse);
+    }
+
 }
