@@ -1,5 +1,6 @@
 package pairmatching.model;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,10 @@ public class Crew {
     public Crew() {
         this.backendCrew = readCrew("backend-crew.md");
         this.frontendCrew = readCrew("frontend-crew.md");
+    }
+
+    public List<String> shuffleBackend() {
+        return Randoms.shuffle(backendCrew);
     }
 
     private List<String> readCrew(String crewCourse) {
