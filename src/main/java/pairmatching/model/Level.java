@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import pairmatching.exception.LevelException;
 
 public class Level {
     private final Map<String, List<String>> levelMission = new HashMap<String, List<String>>() {{
@@ -17,8 +18,9 @@ public class Level {
     private final String currentLevel;
     private final String currentMission;
 
-    public Level(String Level, String mission) {
-        this.currentLevel = Level;
+    public Level(String level, String mission) {
+        validateLevel(level, mission);
+        this.currentLevel = level;
         this.currentMission = mission;
     }
 
@@ -28,5 +30,19 @@ public class Level {
 
     public boolean compareMission(String targetLevel, String targetMission) {
         return currentLevel.equals(targetLevel) && currentMission.equals(targetMission);
+    }
+
+    private void validateLevel(String level, String mission) {
+        if (!levelMission.containsKey(level)) {
+            throw new IllegalArgumentException(LevelException.INVALID_LEVEL.getExceptionMessage());
+        }
+        validateMission(level, mission);
+    }
+
+    private void validateMission(String level, String mission) {
+        List<String> missions = levelMission.get(level);
+        if (!missions.contains(mission)) {
+            throw new IllegalArgumentException(LevelException.INVALID_MISSION.getExceptionMessage());
+        }
     }
 }
