@@ -25,4 +25,8 @@ public class Level {
     public boolean compareLevel(String targetLevel) {
         return currentLevel.equals(targetLevel);
     }
+
+    public boolean compareMission(String targetLevel, String targetMission) {
+        return currentLevel.equals(targetLevel) && currentMission.equals(targetMission);
+    }
 }
