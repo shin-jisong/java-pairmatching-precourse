@@ -21,4 +21,8 @@ public class Level {
         this.currentLevel = Level;
         this.currentMission = mission;
     }
+
+    public boolean compareLevel(String targetLevel) {
+        return currentLevel.equals(targetLevel);
+    }
 }
